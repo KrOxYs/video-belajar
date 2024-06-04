@@ -32,7 +32,11 @@ export default function NavbarComponent({ showItems }) {
     // Sticky strick
     const customStyle = ["sticky-nav", "fixed", "border-b"];
     window.onscroll = () => {
-      if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
+      if (window.scrollY > 80) {
+        navRef.current.classList.add(...customStyle);
+      } else {
+        if (showItems) navRef.current.classList.remove(...customStyle);
+      }
       // else navRef.current.classList.remove(...customStyle);
     };
   }, [state]);
