@@ -10,7 +10,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: "400" });
 export default function BottomHeroSection() {
   return (
     <div className="mt-10">
-      <div className="w-5/6 ml-8 md:m-auto md:w-5/6 flex items-center justify-center mx-auto heroSectionBottom text-white bg-cover bg-no-repeat rounded-xl">
+      <div className="w-auto md:w-5/6 md:mx-auto ml:0 -ml-10 flex items-center justify-center  heroSectionBottom text-white bg-cover bg-no-repeat rounded-xl">
         <div className="w-3/5 text-center text-wrap pt-7 pb-9 ml-8 lg:ml-0">
           <p className=" text-gray-400 text-md mt-11 font-semibold">
             NEWSLATTER

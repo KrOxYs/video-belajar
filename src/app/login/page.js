@@ -7,7 +7,7 @@ import NavbarComponent from "../components/global/Navbar";
 export default function LoginPage() {
   return (
     <div>
-      <NavbarComponent showItems={false} />
+      {/* <NavbarComponent showItems={false} /> */}
       <Login />
       {/* <Register/> */}
     </div>

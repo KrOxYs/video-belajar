@@ -11,13 +11,13 @@ import Footer from "./components/global/Footer";
 export default function Home() {
   return (
     <div>
-      <NavbarComponent showItems={true} />
+      {/* <NavbarComponent showItems={true} /> */}
       <HeroSection />
       <TittleContent />
       <MainSection />
       {/* <HeroSection /> */}
       <BottomHeroSection />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

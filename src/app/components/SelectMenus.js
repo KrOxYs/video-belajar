@@ -30,9 +30,10 @@ export default function SelectMenus() {
       labelPlacement="outside"
       variant="bordered"
       classNames={{
-        base: "w-32 md:w-80",
+        base: "w-64 sm:w-80",
         trigger: "h-11",
         listboxWrapper: "w-full",
+        listbox: "w-full",
       }}
       renderValue={(items) => {
         return items.map((item) => (
@@ -62,7 +63,7 @@ export default function SelectMenus() {
             <Avatar
               alt={user.name}
               className="flex-shrink-0"
-              size="sm"
+              size="md"
               src={user.avatar}
             />
             <div className="flex flex-col">

@@ -5,11 +5,12 @@ import Logo from "../Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function NavbarComponent({ showItems }) {
+export default function NavbarComponent() {
   const [state, setState] = useState(false);
   const navRef = useRef();
   const pathName = usePathname();
   const isHome = pathName === "/";
+  const isRegisOrLogin = pathName === "/register" || pathName === "/login";
 
   const navigation = [
     { title: "Customers", path: "" },
@@ -30,12 +31,12 @@ export default function NavbarComponent({ showItems }) {
     else body.classList.remove(...customBodyStyle);
 
     // Sticky strick
-    const customStyle = ["sticky-nav", "fixed", "border-b"];
+    const customStyle = ["fixed"];
     window.onscroll = () => {
       if (window.scrollY > 80) {
-        navRef.current.classList.add(...customStyle);
+        navRef.current.classList.add(customStyle[0]);
       } else {
-        if (showItems) navRef.current.classList.remove(...customStyle);
+        navRef.current.classList.remove(customStyle[0]);
       }
       // else navRef.current.classList.remove(...customStyle);
     };
@@ -48,44 +49,42 @@ export default function NavbarComponent({ showItems }) {
           {/* <Link href="/"> */}
           <Logo />
           {/* </Link> */}
-          {showItems && (
-            <div className="lg:hidden">
-              <button
-                className="text-gray-700 outline-none p-2 rounded-md "
-                onClick={() => setState(!state)}
-              >
-                {state ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 8h16M4 16h16"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          )}
+          <div className="lg:hidden">
+            <button
+              className="text-gray-700 outline-none p-2 rounded-md "
+              onClick={() => setState(!state)}
+            >
+              {state ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 8h16M4 16h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
         <div
           className={`flex-1 justify-between flex-row-reverse lg:overflow-visible lg:flex lg:pb-0 lg:pr-0 lg:h-auto ${
@@ -93,32 +92,67 @@ export default function NavbarComponent({ showItems }) {
           }`}
         >
           <div>
-            {showItems && (
-              <ul className="flex flex-col space-x-0 lg:space-x-6 lg:flex-row ">
-                <li className="mt-8 mb-0 lg:mt-0 lg:mb-0 block lg:hidden ">
-                  <a
-                    href=""
-                    className={`${
-                      isHome ? "text-green-400" : "text-gray-600"
-                    } hover:text-indigo-600`}
-                  >
-                    Beranda
+            <ul className="flex flex-col space-x-0 lg:space-x-6 lg:flex-row ">
+              <li className="mt-8 mb-0 lg:mt-0 lg:mb-0 block lg:hidden ">
+                <a
+                  href=""
+                  className={`${
+                    isHome ? "text-green-400" : "text-gray-600"
+                  } hover:text-indigo-600`}
+                >
+                  Beranda
+                </a>
+              </li>
+              <span className="w-full h-0.5 bg-slate-100 mt-5"></span>
+              {isRegisOrLogin && (
+                <li className="block md:hidden mt-4 lg:mt-0 lg:mb-0">
+                  <a href="" className="text-gray-600 hover:text-indigo-600">
+                    Kategori
                   </a>
                 </li>
-                <span className="w-full h-0.5 bg-slate-100 mt-5"></span>
+              )}
+              {isHome && (
                 <li className="mt-4 lg:mt-0 lg:mb-0">
                   <a href="" className="text-gray-600 hover:text-indigo-600">
                     Kategori
                   </a>
                 </li>
-                <li className="mt-4 lg:mt-0">
-                  <Link
+              )}
+              {isRegisOrLogin && (
+                <li className="block md:hidden mt-4 lg:mt-0">
+                  <a
                     href="/login"
                     className="py-3 px-4 text-center text-white bg-green-400  rounded-md  block lg:inline"
                   >
                     Login
-                  </Link>
+                  </a>
                 </li>
+              )}
+              {isHome && (
+                <li className="mt-4 lg:mt-0">
+                  <a
+                    href="/login"
+                    className="py-3 px-4 text-center text-white bg-green-400  rounded-md  block lg:inline"
+                  >
+                    Login
+                  </a>
+                </li>
+              )}
+              {isRegisOrLogin && (
+                <li className="block md:hidden mt-3 lg:mt-0">
+                  {/* <button className="px-4 py-2 text-green-400 border rounded-lg border-green-400">
+                  Register
+                </button> */}
+                  <a
+                    href="/register"
+                    className="py-3 px-4 text-center text-green-400 border-green-400 border rounded-md  block lg:inline"
+                  >
+                    Register
+                  </a>
+                </li>
+              )}
+
+              {isHome && (
                 <li className="mt-3 lg:mt-0">
                   {/* <button className="px-4 py-2 text-green-400 border rounded-lg border-green-400">
                   Register
@@ -130,8 +164,8 @@ export default function NavbarComponent({ showItems }) {
                     Register
                   </a>
                 </li>
-              </ul>
-            )}
+              )}
+            </ul>
           </div>
         </div>
       </div>

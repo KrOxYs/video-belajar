@@ -8,7 +8,7 @@ import PhoneInput from "../micro/PhoneInput";
 
 export default function Register() {
   return (
-    <main className="w-full h-auto mt-20 mb-40 flex flex-col items-center justify-cente sm:px-4">
+    <main className="w-full h-auto mt-20 mb-10 flex flex-col items-center justify-cente sm:px-4">
       <div className="w-5/6 space-y-6 text-gray-600 sm:max-w-xl">
         <div className="w-full bg-white shadow p-4 py-6 sm:p-6 sm:rounded-lg">
           <div className="text-center mb-10">
