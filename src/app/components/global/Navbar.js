@@ -33,7 +33,7 @@ export default function NavbarComponent({ showItems }) {
     const customStyle = ["sticky-nav", "fixed", "border-b"];
     window.onscroll = () => {
       if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
-      else navRef.current.classList.remove(...customStyle);
+      // else navRef.current.classList.remove(...customStyle);
     };
   }, [state]);
 
@@ -119,12 +119,12 @@ export default function NavbarComponent({ showItems }) {
                   {/* <button className="px-4 py-2 text-green-400 border rounded-lg border-green-400">
                   Register
                 </button> */}
-                  <Link
+                  <a
                     href="/register"
                     className="py-3 px-4 text-center text-green-400 border-green-400 border rounded-md  block lg:inline"
                   >
                     Register
-                  </Link>
+                  </a>
                 </li>
               </ul>
             )}
