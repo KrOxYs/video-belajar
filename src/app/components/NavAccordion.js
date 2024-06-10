@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { FooterAccordionItems } from "../utils/data";
-
+// import { FooterAccordionItems } from "../utils/data";
+import { footerNavs } from "../utils/data";
 const NavAccordion = () => {
-  const frequentlyAskQuestions = FooterAccordionItems();
+  const frequentlyAskQuestions = footerNavs;
   const [activeId, setActiveId] = useState(null);
 
   const togglerFunction = (index) => {

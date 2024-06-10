@@ -10,7 +10,12 @@ export default function NavbarComponent() {
   const navRef = useRef();
   const pathName = usePathname();
   const isHome = pathName === "/";
-  const isRegisOrLogin = pathName === "/register" || pathName === "/login";
+  const isRegisOrLoginOrDasboard =
+    pathName === "/register" ||
+    pathName === "/login" ||
+    pathName === "/dashboard";
+
+  const isDashboard = pathName === "/dashboard";
 
   const navigation = [
     { title: "Customers", path: "" },
@@ -103,14 +108,37 @@ export default function NavbarComponent() {
                   Beranda
                 </a>
               </li>
+              {isRegisOrLoginOrDasboard && (
+                <li className="block md:hidden mt-4 lg:mt-0 lg:mb-0">
+                  <Link
+                    href="/dashboard"
+                    className={`${
+                      isDashboard ? "text-green-400" : "text-gray-600"
+                    } hover:text-indigo-600`}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
+              {isHome && (
+                <li className="mt-4 lg:mt-0 lg:mb-0">
+                  <Link
+                    href="/dashboard"
+                    className="text-gray-600 hover:text-indigo-600"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
               <span className="w-full h-0.5 bg-slate-100 mt-5"></span>
-              {isRegisOrLogin && (
+              {isRegisOrLoginOrDasboard && (
                 <li className="block md:hidden mt-4 lg:mt-0 lg:mb-0">
                   <a href="" className="text-gray-600 hover:text-indigo-600">
                     Kategori
                   </a>
                 </li>
               )}
+
               {isHome && (
                 <li className="mt-4 lg:mt-0 lg:mb-0">
                   <a href="" className="text-gray-600 hover:text-indigo-600">
@@ -118,7 +146,7 @@ export default function NavbarComponent() {
                   </a>
                 </li>
               )}
-              {isRegisOrLogin && (
+              {isRegisOrLoginOrDasboard && (
                 <li className="block md:hidden mt-4 lg:mt-0">
                   <a
                     href="/login"
@@ -138,7 +166,7 @@ export default function NavbarComponent() {
                   </a>
                 </li>
               )}
-              {isRegisOrLogin && (
+              {isRegisOrLoginOrDasboard && (
                 <li className="block md:hidden mt-3 lg:mt-0">
                   {/* <button className="px-4 py-2 text-green-400 border rounded-lg border-green-400">
                   Register

@@ -2,10 +2,10 @@
 
 import Logo from "../Logo";
 import NavAccordion from "../NavAccordion";
-import { FooterAccordionItems } from "../../utils/data";
+import { FooterAccordionItems, footerNavs } from "../../utils/data";
 import FooterLogo from "../micro/FooterLogo";
 export default function Footer() {
-  const footerNavs = FooterAccordionItems();
+  const footerNav = footerNavs;
   // console.log(footerNavs);
   return (
     <footer className="w-full text-gray-500 bg-white px-8 py-5 mx-auto md:px-8 mt-11">
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex-1 mt-10 space-y-6 gap-4 justify-evenly sm:flex md:space-y-0 md:mt-0">
-          {footerNavs.map((item, idx) => (
+          {footerNav.map((item, idx) => (
             <ul className="space-y-4 hidden md:block" key={idx}>
               <h4 className="text-gray-800 font-medium">{item.label}</h4>
               {item.items.map((el, idx) => (

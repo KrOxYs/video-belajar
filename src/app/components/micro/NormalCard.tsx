@@ -3,8 +3,15 @@ import RatingStars from "./RatingStar";
 import Image from "next/image";
 import CardImage from "/public/g1.png";
 import Link from "next/link";
+import { useState } from "react";
+// import { useStore } from "zustand";
+// import { useStore } from "@/app/utils/Store";
 export default function NormalCard({ data }) {
+  // const [test,setTest] = useState<string>("");
   // console.l/og(data);
+
+  // const productData = useStore((state) => state.Data);
+  // console.log(productData);
   const { id, title, description, productImage, username, userTitle, price } =
     data;
   return (
@@ -13,18 +20,19 @@ export default function NormalCard({ data }) {
         href="#"
         className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
       >
-        {/* <img
-            alt=""
-            src={Image}
-            className="h-56 w-full rounded-md object-cover"
-          /> */}
-        <Image
+        <img
+          alt=""
+          src={productImage}
+          className="h-56 w-full rounded-md object-cover"
+        />
+        {/* <Image
           src={productImage}
           width={500}
           height={500}
           alt="Picture of the author"
           priority
-        />
+        /> */}
+
         {/* <Image src={'../'}/> */}
 
         <div className="mt-2">
