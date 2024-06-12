@@ -1,15 +1,14 @@
 "use client";
 import NormalCard from "./micro/NormalCard";
-import { productData } from "../utils/data";
-import { useState } from "react";
 import MobileCard from "./micro/MobileCard";
 import { useStore } from "../utils/Store";
-// import Nor
+import { getData } from "../service/api/source";
+import { useEffect, useState } from "react";
 export default function CardSection() {
-  // console.log(productData());
-  // const [data, setData] = useState(productData());
-  const { Data } = useStore();
-  // console.log(Data);
+  const { Data, getDataFromApi } = useStore();
+  useEffect(() => {
+    getDataFromApi();
+  }, []);
   return (
     <div className="w-full flex flex-wrap flex-row gap-4">
       {Data.map((item, key) => (

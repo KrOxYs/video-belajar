@@ -4,16 +4,17 @@ import Image from "next/image";
 import CardImage from "/public/g1.png";
 import Link from "next/link";
 import { useState } from "react";
-// import { useStore } from "zustand";
-// import { useStore } from "@/app/utils/Store";
 export default function NormalCard({ data }) {
-  // const [test,setTest] = useState<string>("");
-  // console.l/og(data);
-
-  // const productData = useStore((state) => state.Data);
-  // console.log(productData);
-  const { id, title, description, productImage, username, userTitle, price } =
-    data;
+  const {
+    id,
+    title,
+    description,
+    productImage,
+    username,
+    userTitle,
+    price,
+    Avatar,
+  } = data;
   return (
     <div className="w-2/5 lg:w-96 ml-11 bg-white hidden md:block">
       <Link
@@ -25,15 +26,6 @@ export default function NormalCard({ data }) {
           src={productImage}
           className="h-56 w-full rounded-md object-cover"
         />
-        {/* <Image
-          src={productImage}
-          width={500}
-          height={500}
-          alt="Picture of the author"
-          priority
-        /> */}
-
-        {/* <Image src={'../'}/> */}
 
         <div className="mt-2">
           <dl>

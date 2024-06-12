@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Table,
   TableHeader,
@@ -13,8 +13,12 @@ import { useStore } from "../../utils/Store";
 import ButtonActions from "./ButtonActions";
 import style from "../../globals.css";
 export default function TableComp() {
-  const { Data } = useStore();
+  const { Data, getDataFromApi } = useStore();
   // console.log(Data);
+
+  useEffect(() => {
+    getDataFromApi();
+  }, []);
   return (
     <Table
       aria-label="Example static collection table "
