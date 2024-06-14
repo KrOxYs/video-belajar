@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/components/micro/Table.js"  ],
+, "src/app/components/micro/Table.js", "src/app/components/micro/ButtonActions.js", "src/app/components/micro/NormalCard.js", "src/app/page.js", "src/app/dashboard/page.js"  ],
   "exclude": [
     "node_modules"
   ]

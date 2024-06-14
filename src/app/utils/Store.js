@@ -14,17 +14,6 @@ export const useStore = create((set) => ({
       console.error("Error fetching data:", error);
     }
   },
-  getDataFromApiById: async (id) => {
-    try {
-      const response = await axios.get(
-        `https://${process.env.API_SECRET}.mockapi.io/api/product/${id}`
-      );
-      set({ Data: response.data });
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  },
-
   insertData: async (newData) => {
     try {
       const response = await axios.post(

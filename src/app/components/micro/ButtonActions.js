@@ -22,15 +22,15 @@ import { useStore } from "../../utils/Store";
 import { uploadFile } from "../../utils/uploadFile";
 import { deleteFile } from "../../utils/deleteFile";
 
-export default function ButtonActions({ id }: { id: number }) {
+export default function ButtonActions({ id }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { editData, deleteData, Data } = useStore();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
-  const [price, setPrice] = useState<string>("");
+  const [price, setPrice] = useState("");
   const [dataId, setDataId] = useState(null);
-  const [imageName, setImageName] = useState<string>("");
+  const [imageName, setImageName] = useState("");
   const [progress, setProgress] = useState(0);
 
   const [url, setUrl] = useState(null);
