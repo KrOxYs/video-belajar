@@ -1,9 +1,8 @@
 "use client";
 import NormalCard from "./micro/NormalCard";
 import MobileCard from "./micro/MobileCard";
-import { useStore } from "../utils/Store";
-import { getData } from "../service/api/source";
-import { useEffect, useState } from "react";
+import { useStore } from "../service/api/Store";
+import { useEffect } from "react";
 export default function CardSection() {
   const { Data, getDataFromApi } = useStore();
   useEffect(() => {

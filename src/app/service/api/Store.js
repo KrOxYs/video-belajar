@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { data } from "./data";
 import axios from "axios";
 
 export const useStore = create((set) => ({

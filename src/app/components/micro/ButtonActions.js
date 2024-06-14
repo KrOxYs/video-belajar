@@ -18,7 +18,7 @@ import {
   Textarea,
 } from "@nextui-org/react";
 import { useState } from "react";
-import { useStore } from "../../utils/Store";
+import { useStore } from "../../service/api/Store";
 import { uploadFile } from "../../utils/uploadFile";
 import { deleteFile } from "../../utils/deleteFile";
 
@@ -138,9 +138,6 @@ export default function ButtonActions({ id }) {
                 <form onSubmit={handleSumbit}>
                   <Input
                     autoFocus
-                    //   endContent={
-                    //     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                    //   }
                     label="title"
                     placeholder="title"
                     variant="bordered"
@@ -155,25 +152,10 @@ export default function ButtonActions({ id }) {
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
                   />
-                  {/* <Input
-                    autoFocus
-                    //   endContent={
-                    //     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                    //   }
-                    label="image URL"
-                    placeholder="Image URL"
-                    variant="bordered"
-                    onChange={(e) => setImage(e.target.value)}
-                    className="mb-3"
-                    value={image}
-                  /> */}
                   <input type="file" onChange={handleChange} />
 
                   <Input
                     autoFocus
-                    //   endContent={
-                    //     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-                    //   }
                     label="Price"
                     placeholder="Price"
                     variant="bordered"

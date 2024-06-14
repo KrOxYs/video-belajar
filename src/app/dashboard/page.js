@@ -1,12 +1,9 @@
 // import TableComp from "../components/micro/Table";
 "use client";
 import TableComp from "../components/micro/Table";
-import NormalCard from "../components/micro/NormalCard";
-import { useStore } from "../utils/Store";
 import ModalForm from "../components/micro/ModalForm";
 import "../globals.css";
 export default function Page() {
-  const data = useStore((state) => state.Data);
   return (
     <div className="w-auto ml-10 md:h-screen">
       {/* <h1>Dashboard</h1> */}

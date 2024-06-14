@@ -13,7 +13,7 @@ import {
   Link,
   Textarea,
 } from "@nextui-org/react";
-import { useStore } from "../../utils/Store";
+import { useStore } from "../../service/api/Store";
 import { uploadFile } from "../../utils/uploadFile";
 export default function ModalForm() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

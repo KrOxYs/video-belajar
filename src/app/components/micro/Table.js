@@ -9,7 +9,7 @@ import {
   TableCell,
 } from "@nextui-org/react";
 import RatingStars from "./RatingStar";
-import { useStore } from "../../utils/Store";
+import { useStore } from "../../service/api/Store";
 import ButtonActions from "./ButtonActions";
 import style from "../../globals.css";
 export default function TableComp() {
